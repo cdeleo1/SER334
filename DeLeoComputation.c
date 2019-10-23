@@ -1,7 +1,7 @@
 /* 
  * Computes the total volume for a number of cylinders.
  * 
- * Completion time:
+ * Completion time: 0.5 HOURS
  * 
  * @author Cristi DeLeo
  * @version 20191023
@@ -10,6 +10,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //INCLUDES
 #include <stdio.h>
+
 int main(void)
 {
     int i = 0, numCyl = 0;
