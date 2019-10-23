@@ -40,6 +40,9 @@
         </cTool>
       </compileType>
       <item path="DeLeoComputation.c" ex="false" tool="0" flavor2="0">
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
       </item>
     </conf>
     <conf name="Release" type="1">

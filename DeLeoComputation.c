@@ -1,5 +1,5 @@
 /* 
- * Computes the total volum for a number of cylinders.
+ * Computes the total volume for a number of cylinders.
  * 
  * Completion time:
  * 

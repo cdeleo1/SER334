@@ -65,7 +65,7 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/ser334: ${OBJECTFILES}
 ${OBJECTDIR}/DeLeoComputation.o: DeLeoComputation.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -std=c99 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DeLeoComputation.o DeLeoComputation.c
+	$(COMPILE.c) -O2 -std=c99 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DeLeoComputation.o DeLeoComputation.c
 
 # Subprojects
 .build-subprojects:
