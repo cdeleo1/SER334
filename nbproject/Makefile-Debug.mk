@@ -36,7 +36,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/DeLeoComputation.o \
-	${OBJECTDIR}/DeLeoDecryption.o
+	${OBJECTDIR}/DeLeoDecrypt.o \
+	${OBJECTDIR}/DeLeoScheduler.o
 
 
 # C Compiler Flags
@@ -68,10 +69,15 @@ ${OBJECTDIR}/DeLeoComputation.o: DeLeoComputation.c
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -std=c99 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DeLeoComputation.o DeLeoComputation.c
 
-${OBJECTDIR}/DeLeoDecryption.o: DeLeoDecryption.c
+${OBJECTDIR}/DeLeoDecrypt.o: DeLeoDecrypt.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -std=c99 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DeLeoDecryption.o DeLeoDecryption.c
+	$(COMPILE.c) -g -std=c99 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DeLeoDecrypt.o DeLeoDecrypt.c
+
+${OBJECTDIR}/DeLeoScheduler.o: DeLeoScheduler.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -std=c99 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DeLeoScheduler.o DeLeoScheduler.c
 
 # Subprojects
 .build-subprojects:
