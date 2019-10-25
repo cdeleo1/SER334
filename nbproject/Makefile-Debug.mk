@@ -35,7 +35,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/DeLeoComputation.o
+	${OBJECTDIR}/DeLeoComputation.o \
+	${OBJECTDIR}/DeLeoDecryption.o
 
 
 # C Compiler Flags
@@ -66,6 +67,11 @@ ${OBJECTDIR}/DeLeoComputation.o: DeLeoComputation.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -std=c99 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DeLeoComputation.o DeLeoComputation.c
+
+${OBJECTDIR}/DeLeoDecryption.o: DeLeoDecryption.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -std=c99 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DeLeoDecryption.o DeLeoDecryption.c
 
 # Subprojects
 .build-subprojects:

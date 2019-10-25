@@ -13,6 +13,7 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>DeLeoComputation.c</itemPath>
+      <itemPath>DeLeoDecryption.c</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -44,6 +45,8 @@
           <developmentMode>5</developmentMode>
         </cTool>
       </item>
+      <item path="DeLeoDecryption.c" ex="false" tool="0" flavor2="0">
+      </item>
     </conf>
     <conf name="Release" type="1">
       <toolsSet>
@@ -67,6 +70,8 @@
         </asmTool>
       </compileType>
       <item path="DeLeoComputation.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="DeLeoDecryption.c" ex="false" tool="0" flavor2="0">
       </item>
     </conf>
   </confs>

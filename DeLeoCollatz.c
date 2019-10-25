@@ -1,11 +1,12 @@
 /* 
  * Determines if a particular positive integer satisfies the collatz conjecture.
  * 
- * Completion time:
+ * Completion time: 0.5 HOURS
  * 
  * @author Cristi DeLeo
  * @version 20191023
  */
+
 #include <stdio.h>
 
 int termination(int n);
