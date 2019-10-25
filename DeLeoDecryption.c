@@ -1,7 +1,7 @@
 /* 
  * Chunk-based decryption implementation
  * 
- * Completion time: 0.5 HOURS
+ * Completion time: 1.5 HOURS
  * 
  * @author Cristi DeLeo
  * @version 20191024
@@ -31,17 +31,8 @@ int main()
     strcpy(chunks[2], "4R3%Wnyhmnj%%%%%%%%%");
     strcpy(chunks[3], "3xzhhjxx3'%2%Ijssnx%");
 
-    //the format of a chunk is a single number indicating its order in overall
-    //message followed by twenty encrypted characters.
-    //reorder chunks in message by sorting them based on the first digital
-    //they contain. looking above, one can see they are currently in the order
-    //2, 1, 4, 3 but should be ordered 1, 2, 3, 4.
     sort_chunks();
-
-    //shift the characters in the message to produce the original characters.
     decrypt_chunks();
-
-    //display the decrypted message.
     display_chunks();
 
     return 0; 
