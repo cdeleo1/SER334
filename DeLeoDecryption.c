@@ -36,7 +36,7 @@ int main()
     //reorder chunks in message by sorting them based on the first digital
     //they contain. looking above, one can see they are currently in the order
     //2, 1, 4, 3 but should be ordered 1, 2, 3, 4.
-    //sort_chunks();
+    sort_chunks();
 
     //shift the characters in the message to produce the original characters.
     //decrypt_chunks();
@@ -59,19 +59,19 @@ void swap_strings(char* x, char* y)
 
 // Sorts each string in the global variable chunks[][]
 // The sort order is based on the first character of each string.
-/*void sort_chunks() 
+void sort_chunks() 
 {
-    int i, j;
-    char minChunk[CHUNK_LENGTH];
-
-    for (i = 0; i < NUMBER_OF_CHUNKS - 1; i++) {
+    char *chunk_ptr = 0;
+    int j;
+    
+    for (int i = 0; i < NUMBER_OF_CHUNKS; i++) {
         
         int minIndex = i;
-        strcpy(minChunk, chunks[i]);
+        chunk_ptr = chunks[i];
         
         for (j = i + 1; j < NUMBER_OF_CHUNKS; j++) {
-            if (strcmp(minChunk->head < chunks[j][0]) > 0) {
-                strcpy(minChunk, chunks[j]);
+            if (*chunk_ptr > chunks[j][0]) {
+                chunk_ptr = chunks[j] ;
                 minIndex = j;
             };
         }
@@ -80,7 +80,7 @@ void swap_strings(char* x, char* y)
             swap_strings(chunks[i], chunks[minIndex]);
         };
     }
-}*/
+}
 
 //for each string in the global chunks variable, shifts the characters in it by
 //DECRYPTION_SHIFT.
@@ -107,7 +107,9 @@ void display_chunks()
     char *chunk_ptr = 0;
     
     for (int i = 0; i < NUMBER_OF_CHUNKS; i++) {
+        
         chunk_ptr = chunks[i];
+        
         while (*chunk_ptr) {
             printf("%c",*chunk_ptr);
             *chunk_ptr = *chunk_ptr + 1;
