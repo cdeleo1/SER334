@@ -39,7 +39,7 @@ int main()
     sort_chunks();
 
     //shift the characters in the message to produce the original characters.
-    //decrypt_chunks();
+    decrypt_chunks();
 
     //display the decrypted message.
     display_chunks();
@@ -86,19 +86,17 @@ void sort_chunks()
 //DECRYPTION_SHIFT.
 void decrypt_chunks() 
 {
-    //TODO: Implement decrypt_chunks(). Loop over each string in the array
-    //      and shift the characters in it by subtracting DECRYPTION_SHIFT value
-    //      from them. Use pointer arithmetic to access individual characters
-    //      but
-    //      array access to the strings. Remember that C-style strings have a
-    //      null
-    //      terminator at the end. Do not apply the shift to the terminator.
-    //      (Hint: to avoid doing double pointer arithmatic, save a char* 
-    //      pointer
-    //      to the active chunk[?] in the outer loop but before the inner 
-    //      loop.
-    //      Then the inner loop is only concerned with a single array of
-    //      characters rather than an array of strings.)
+    char *chunk_ptr = 0;
+    
+    for (int i = 0; i < NUMBER_OF_CHUNKS; i++) {
+        
+        chunk_ptr = chunks[i];
+        
+        while (*chunk_ptr) {
+            *chunk_ptr = *chunk_ptr - DECRYPTION_SHIFT;
+            chunk_ptr++;
+        }
+    }
 }
 
 //displays the strings in the global chunks variable
@@ -109,6 +107,7 @@ void display_chunks()
     for (int i = 0; i < NUMBER_OF_CHUNKS; i++) {
         
         chunk_ptr = chunks[i];
+        chunk_ptr++;
         
         while (*chunk_ptr) {
             printf("%c",*chunk_ptr);
