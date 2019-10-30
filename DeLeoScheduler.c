@@ -55,7 +55,7 @@ int main() {
         branching(input_buffer);
     } while (input_buffer != 'q');
     
-    //deallocate
+    //Deallocate
     while(course_collection != NULL)
         remove_CourseNode();
     
