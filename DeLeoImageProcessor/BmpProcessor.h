@@ -1,19 +1,38 @@
-/* 
- * File:   BmpProcessor.h
- * Author: cristi
- *
- * Created on October 31, 2019, 8:53 PM
+/**
+ * BMP Headers IO - contains structures for the headers of a BMP file and 
+ * functions to read and write them.
+ * 
+ * Completion time: 1.5 hours
+ * 
+ * @author Cristi DeLeo
+ * @version 20191031
  */
 
 #ifndef BMPPROCESSOR_H
 #define BMPPROCESSOR_H
 
 struct BMP_Header {
-    //TODO:Finish struct
+    char signature[2];          // ID field
+    int size;                   // Size of the BMP file
+    short reserved1;            // Application specific
+    short reserved2;            // Application specific
+    int offset_pixel_array;     // Offset where the pixel can be found
 };
 
+// DIB DATA STRUCTURE
+// A bitmap image loaded into memory becomes a DIB data structure
 struct DIB_Header {
-    //TODO:Finish struct
+    int size;                   // Size of this header
+    int width;                  // Width of bitmap image (in pixels)
+    int height;                 // Height of bitmap image (in pixels)
+    short planes;               // Number of color planes (must be 1)
+    short bits;                 // Number of bits per pixel
+    int compression;            // Compression method being used
+    int imageSize;              // Size of the raw bitmap data
+    int x_resolution;           // Horizontal resolution of the image
+    int y_resolution;           // Vertical resolution of the image
+    int number_of_colors;       // Number of colors in the color table
+    int important_color_count;  // Number of important colors used
 };
 
 /**
