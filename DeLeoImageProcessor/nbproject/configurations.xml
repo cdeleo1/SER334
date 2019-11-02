@@ -15,7 +15,10 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>BmpProcessor.c</itemPath>
       <itemPath>DeLeoImageProcessor.c</itemPath>
+      <itemPath>PixelProcessor.c</itemPath>
+      <itemPath>PpmProcessor.c</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -42,11 +45,17 @@
           <standard>3</standard>
         </cTool>
       </compileType>
+      <item path="BmpProcessor.c" ex="false" tool="0" flavor2="0">
+      </item>
       <item path="BmpProcessor.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="DeLeoImageProcessor.c" ex="false" tool="0" flavor2="0">
       </item>
+      <item path="PixelProcessor.c" ex="false" tool="0" flavor2="0">
+      </item>
       <item path="PixelProcessor.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PpmProcessor.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="PpmProcessor.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -72,11 +81,17 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="BmpProcessor.c" ex="false" tool="0" flavor2="0">
+      </item>
       <item path="BmpProcessor.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="DeLeoImageProcessor.c" ex="false" tool="0" flavor2="0">
       </item>
+      <item path="PixelProcessor.c" ex="false" tool="0" flavor2="0">
+      </item>
       <item path="PixelProcessor.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PpmProcessor.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="PpmProcessor.h" ex="false" tool="3" flavor2="0">
       </item>

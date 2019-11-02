@@ -35,7 +35,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/DeLeoImageProcessor.o
+	${OBJECTDIR}/BmpProcessor.o \
+	${OBJECTDIR}/DeLeoImageProcessor.o \
+	${OBJECTDIR}/PixelProcessor.o \
+	${OBJECTDIR}/PpmProcessor.o
 
 
 # C Compiler Flags
@@ -62,10 +65,25 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/deleoimageprocessor: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/deleoimageprocessor ${OBJECTFILES} ${LDLIBSOPTIONS}
 
+${OBJECTDIR}/BmpProcessor.o: BmpProcessor.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -std=c99 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/BmpProcessor.o BmpProcessor.c
+
 ${OBJECTDIR}/DeLeoImageProcessor.o: DeLeoImageProcessor.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -std=c99 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DeLeoImageProcessor.o DeLeoImageProcessor.c
+
+${OBJECTDIR}/PixelProcessor.o: PixelProcessor.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -std=c99 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PixelProcessor.o PixelProcessor.c
+
+${OBJECTDIR}/PpmProcessor.o: PpmProcessor.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -std=c99 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PpmProcessor.o PpmProcessor.c
 
 # Subprojects
 .build-subprojects:
