@@ -24,7 +24,6 @@
 #define LOADBMP_INVALID_SIGNATURE 5
 #define LOADBMP_INVALID_BITS_PER_PIXEL 6
 
-
 // Components
 #define LOADBMP_RGB  3
 #define LOADBMP_RGBA 4
@@ -61,7 +60,8 @@ LOADBMP_API unsigned int loadBMPFile(
         unsigned int *width, unsigned int *height, unsigned int components);
 
 void readBMPHeader(FILE* file, BMP_Header* header);
-void writeBMPHeader(FILE* file, BMP_Header* header);
+void writeBMPHeader(FILE* file, unsigned char *header);
+//void makeBMPHeader(BMP_Header* header, int width, int height);
 
 LOADBMP_API unsigned int loadBMPFile(const char *filename, 
         unsigned char **imageData, unsigned int *width, 
@@ -162,9 +162,6 @@ LOADBMP_API unsigned int loadBMPFile(const char *filename,
  */
 void readBMPHeader(FILE* file, BMP_Header* header) {
 
-    if (!file)
-        return LOADBMP_FILE_NOT_FOUND;
-
     fread(&header->signature, sizeof(char)*2, 1, file);
     fread(&header->size, sizeof(int), 1, file);
     fread(&header->reserved1, sizeof(short), 1, file);
@@ -186,23 +183,19 @@ void readBMPHeader(FILE* file, BMP_Header* header) {
  * @param  file: A pointer to the file being written
  * @param  header: The header made by makeBMPHeader function
  */
-void writeBMPHeader(FILE* file, BMP_Header* header) {
+void writeBMPHeader(FILE* file, unsigned char *header) {
 
-    if (!file)
-        return LOADBMP_FILE_NOT_FOUND;
-
-    fwrite("BP", sizeof(char)*2, 1, file);
-    fwrite(header->size, sizeof(int), 1, file);
-    fwrite(0, sizeof(short), 1, file);
-    fwrite(0, sizeof(short), 1, file);
-    fwrite(header->offset_pixel_array, sizeof(int), 1, file);
-    
+    fwrite(header, 2, sizeof(char), file);
+    fwrite(header, 1, sizeof(int), file);
+    fwrite(header, 2, sizeof(short), file);
+    fwrite(header, 1, sizeof(int), file);
+    /*
     printf("signature: %c%c\n", header->signature[0], header->signature[1]);
     printf("size: %d\n", header->size);
     printf("reserved1: %d\n", header->reserved1);
     printf("reserved2: %d\n", header->reserved2);
     printf("offset_pixel_array: %d\n", header->offset_pixel_array);
-    
+    */
     fclose(file);
 }
 
@@ -231,7 +224,14 @@ void writeBMPHeader(FILE* file, BMP_Header* header) {
  * @param  width: Width of the image that this header is for
  * @param  height: Height of the image that this header is for
  */
-//void makeBMPHeader(struct aBMP_Header* header, int width, int height);
+/*void makeBMPHeader(BMP_Header* header, int width, int height) {
+    &header->signature[0] = 'B';
+    &header->signature[1] = 'M';
+    &header->size = 54 + width * height;
+    &header->reserved1 = 0;
+    &header->reserved2 = 0;
+    &header->offset_pixel_array = 54;
+}*/
 
 /**
  * Makes new DIB header based on width and height. Useful for converting files from

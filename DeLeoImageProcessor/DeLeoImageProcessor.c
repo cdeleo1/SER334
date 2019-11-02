@@ -20,13 +20,10 @@
 
 int main(void) {
     BMP_Header* bmp_header;
-    BMP_Header* bmp_header_write;  // BITMAPFILEHEADER
-    //DIB_Header dib_header;  // BITMAPINFOHEADER
-    
+
     const char *filename = "test2.bmp";
-    const char *writeFilename = "writeTest2.bmp";
     
-// BEGIN LOAD BMP FUNCTION
+    // BEGIN LOAD BMP FUNCTION
     unsigned char *pixels = NULL;
     unsigned int width, height;
     unsigned int err = loadBMPFile(filename, &pixels, &width, 
@@ -34,17 +31,12 @@ int main(void) {
     if (err)
         printf("LoadBMP Load Error: %u\n", err);
     free(pixels);
-// END LOAD BMP FUNCTION
+    // END LOAD BMP FUNCTION
 
-// BEGIN READ BMP FUNCTION
+    // BEGIN READ BMP FUNCTION
     FILE *f = fopen(filename, "rb");
     readBMPHeader(f, bmp_header);
-// END READ BMP FUNCTION
-    
-    //FILE *writeF = fopen(writeFilename, "rb");
-    //writeBMPHeader(writeF, bmp_header_write);
-
-    printf("File closed.");
+    // END READ BMP FUNCTION
     
     return 0;
 }
